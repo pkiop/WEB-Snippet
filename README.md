@@ -1,3 +1,3 @@
 # WEB-Snippet
 
-[postMessageAPI](https://github.com/pkiop/WEB-Snippet/postMessageAPI)
+[postMessageAPI](https://github.com/pkiop/WEB-Snippet/tree/master/postMessageAPI)
