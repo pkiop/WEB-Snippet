@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="send">Send</button>
+  <div id="iGotMessage">no message</div>
+  <script>
+    let sendRef = document.getElementById('send'); 
+    let iGotMessage = document.getElementById('iGotMessage');
+    let newWindow = window.open("");
+    
+    sendRef.addEventListener('click', () => {
+      newWindow.postMessage('hihi', '*');
+    })
+    newWindow.addEventListener("message", (e) => {
+      let newDiv = document.createElement("button");
+      const newContent = document.createTextNode("send Parent Hi");
+      newDiv.appendChild(newContent);
+      newDiv.addEventListener("click", (e) => {
+        newWindow.opener.postMessage('Hi', '*');
+      });
+
+      newWindow.document.body.appendChild(newDiv);
+    });
+    window.addEventListener("message", (e) => {
+      iGotMessage.innerHTML= e.data; 
+    })
+  </script>
+  
+</body>
+</html>
